@@ -4,6 +4,7 @@ import path from 'path'
 
 export default defineConfig({
   assetsInclude: ['**/*.hbs'],
+  base: '/messenger-personal/',
   resolve: {
     alias: {
       'core': path.resolve(__dirname, 'src/core'),
