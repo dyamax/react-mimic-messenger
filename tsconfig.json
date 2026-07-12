@@ -24,7 +24,7 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
 
-    "baseUrl": "src",
+    "baseUrl": "/messenger-personal/src",
     "paths": {
       "components/*": ["components/*"],
       "pages/*": ["pages/*"],

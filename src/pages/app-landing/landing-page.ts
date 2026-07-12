@@ -1,10 +1,10 @@
 import './landing-style.css';
 
-import Button from "components/button/button";
+import Button from "../../components/button/button";
 import Block from "../../core/Block";
 import type Router from '../../core/router';
-import { checkLogin } from 'services/service';
-import { injectRouter } from "utils/injectRouter";
+import { checkLogin } from '../../services/service';
+import { injectRouter } from "../../utils/injectRouter";
 
 interface THome {
     router: Router

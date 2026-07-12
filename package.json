@@ -1,9 +1,20 @@
 {
   "name": "middle.messenger.praktikum.yandex",
-  "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "private": true,
+  "description": "The project is a starter layout for a messenger-style web application. It includes several static pages and Handlebars templates, uses TypeScript modules for better code structure, and PostCSS with autoprefixer alongside CSSnano for optimized styling. The build is configured with Vite for fast development and bundling.",
   "homepage": "https://myselfwebdemo.github.io/messenger-personal/",
+  "bugs": {
+    "url": "https://github.com/myselfwebdemo/messenger-personal/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/myselfwebdemo/messenger-personal.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "eslint.config.js",
   "scripts": {
     "start": "vite --host --port 3000",
     "dev": "vite --host --port 3000",
@@ -15,6 +26,12 @@
     "lint": "npm run lint:ts && npm run lint:js && npm run lint:css",
     "test": "mocha",
     "prepare": "husky"
+  },
+  "dependencies": {
+    "handlebars": "^4.7.8",
+    "jsdom": "^27.2.0",
+    "leaflet": "^1.9.4",
+    "vite-plugin-handlebars": "^1.5.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
@@ -43,12 +60,6 @@
     "typescript": "~5.8.3",
     "vite": "^7.2.6",
     "xmlhttprequest": "^1.8.0"
-  },
-  "dependencies": {
-    "handlebars": "^4.7.8",
-    "jsdom": "^27.2.0",
-    "leaflet": "^1.9.4",
-    "vite-plugin-handlebars": "^1.5.0"
   },
   "engines": {
     "node": "22.14.0"
