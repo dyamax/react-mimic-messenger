@@ -12,6 +12,7 @@ class FakeXHR {
     requestBody: any = null;
     status: number = 0;
     response: any = null;
+    networkFail = false;
     onload: Function | null = null;
     onerror: Function | null = null;
 
@@ -26,6 +27,14 @@ class FakeXHR {
 
     send(body?: any) {
         this.requestBody = body;
+
+        if (this.networkFail) {
+            this.status = 0;
+            this.response = null;
+            this.onerror?.({} as Event);
+            return;
+        }
+
         if (this.onload) {
             if (this.status === 0) this.status = 200;
             if (!this.response) this.response = { ok: true };
@@ -116,6 +125,22 @@ describe('EndPointAPI module', () => {
         } catch (err: any) {
             expect(err.status).to.equal(500);
             expect(err.response).to.deep.equal({ error: 'Server error' });
+        }
+    });
+
+    it('should reject promise on network failure with structured error data', async () => {
+        const api = new EndPointAPI('test');
+        const fake = new FakeXHR();
+        xhrStub.callsFake(() => fake);
+        fake.networkFail = true;
+        fake.status = 0;
+
+        try {
+            await api.get('/offline');
+            expect.fail('Expected request to reject');
+        } catch (err: any) {
+            expect(err.status).to.equal(0);
+            expect(err.response).to.deep.equal({ reason: 'Network error' });
         }
     });
 

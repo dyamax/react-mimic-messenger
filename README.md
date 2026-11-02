@@ -1,80 +1,79 @@
-# Middle Messenger (Sprint 2)
+# Middle Messenger
 
-## Project Overview:
+Middle Messenger is a simple, modern chat experience designed for everyday communication. It helps people stay connected through fast conversations, personal profiles, and organized discussions without extra clutter.
 
-The project is a starter layout for a messenger-style web application.
-It includes several static pages and Handlebars templates, uses TypeScript modules for better code structure, and PostCSS with autoprefixer alongside CSSnano for optimized styling. The build is configured with Vite for fast development and bundling.
+## Why this product matters
 
-## Fast Deploy
+People want messaging tools that feel effortless: quick to join, easy to understand, and useful in real time. Middle Messenger is built around that idea — a clean communication space where users can sign up, find people, start conversations, and keep the flow of discussion moving naturally.
 
-```bash
-npm install        # build dependencies
-npm run start      # start dev-server at http://localhost:3000
-npm run build      # build project in dist/
-npm run preview    # start local preview of the build
-```
+The product is focused on the essentials:
+- clear, friendly communication
+- real-time messaging
+- easy contact management
+- personal profile presence
+- smooth chat organization
 
-## Running Tests
-This project uses Mocha and Chai for testing.
+## Product experience
 
-```bash
-# run all tests
-npm run test
-```
-Tests are located next to module that they assess: Block, Router, endPointAPI, Component registration modules. 
+Users can:
+- create an account and personalize their profile
+- find other people and start conversations
+- create and manage chats
+- send messages in real time
+- revisit chat history and continue conversations naturally
+- keep communication centered around the people and topics that matter most
 
-## Deployed App
-Link: https://middle-messenger-yandex-praktikum.netlify.app/
+The experience is designed to feel familiar and approachable, much like the messaging products people already use every day, but in a focused and lightweight format.
 
-## Figma Prototype Of The App
+## What makes it useful
+
+Middle Messenger supports both everyday communication and active collaboration. It is useful for:
+- friends and communities who want to stay in touch
+- small groups coordinating around shared goals
+- personal conversations that need quick updates and easy follow-up
+- digital communication in a clean, distraction-free interface
+
+## Core features
+
+### Real-time chat
+Messages appear immediately so conversations feel alive and responsive.
+
+### Chat management
+Users can create chats, keep track of conversations, and maintain a clean communication structure.
+
+### User discovery
+It is easy to find and connect with other people within the app.
+
+### Profiles and identity
+Each user has a profile area that makes conversations more personal and recognizable.
+
+### Responsive interface
+The app is designed to feel comfortable and readable across screens, with a layout that keeps attention on the conversation.
+
+## Deployed app
+https://middle-messenger-yandex-praktikum.netlify.app/
+
+## Design prototype
 https://www.figma.com/design/EIJl6jgQEAapCA8nKsz0wp/Chat_external_link--Copy-?node-id=0-1&t=YNX3VAGORjhamOaX-1
 
-## What's New? New Functionality
-### Real-Time Functionality
-- Added WebSocket connection for real-time chat messaging  
-- Implemented message history loading and incremental loading on scroll  
-- Added automatic reconnection logic and token renewal  
-- Integrated full chat API:  
-    - (+) login, signup, logout  
-    - (+) create/delete chats  
-    - (+) add/remove users  
-    - (+) fetch chat token  
-    - (+) request/send messages in real time  
+## Getting started
 
-## Tech Stack
-- **TypeScript** — static typing and safer architecture.  
-- **Vite** — fast build and development server.  
-- **Handlebars** — templating for rendering UI blocks.  
-- **ESLint**, **Stylelint**, **EditorConfig** — code quality and consistency.  
-- **Custom EventBus + Block system** — component-based architecture.  
+```bash
+npm install
+npm run start
+```
 
-## Input Fields Validation Rules
-### Registration Form
-| Field | Rules |
-|-------|-------|
-| **first_name / second_name** | Must start with a capital letter (Latin or Cyrillic). No spaces, digits, or special characters except dash `-`. Cannot be blank. |
-| **login** | 3–20 characters, must contain at least one letter, may include numbers, dash `-`, or underscore `_`. Cannot contain spaces. |
-| **email** | Must contain `@` and a dot after it. Local part may include letters, numbers, `-`, `_`, or `.`. Domain must include letters before the dot. TLD must have at least 2 letters. |
-| **password** | 8–40 characters, must include at least one uppercase letter and one number. Cannot be blank. |
-| **password-rep** | Must match `password`. Cannot be blank. |
-| **phone** | 10–15 digits, must start with `+`. Only numbers allowed. Cannot be blank. |
-| **message** | Cannot be blank. |
+Then open the app in the browser at the local Vite address shown in the terminal.
 
-### Login Form
-| Field | Rules |
-|-------|-------|
-| **login** | Cannot be blank on submit. Optional otherwise. |
-| **password** | Cannot be blank on submit. Optional otherwise. |
+### Useful project commands
 
-## Utilities & Tips
-### Cloc: find out number of lines in your project
-To count lines of code use ```cloc```  
-#### By default ```cloc``` traverses whole directory!  
-If you want to specify directory, write ```cloc ./directory-name```  
-Same way you can specify file: ```cloc ./directory-name/file-name.ext```  
-You can exclude directory or file by using ```clocl --exclude-dir=dir-name1,dir-name2``` or ```cloc --exclude-list-file=file-name.ext```  
-Exclude files by extension(s): ```cloc --exclude-ext=extensions```
-### Stylelint: check your styles
-To run stylelint use command ``` npx stylelint "**/*.css" ```
-### ESLint: check your scripts
-To run stylelint use command ``` npx eslint . ```, ``` npx eslint src ``` or ``` npx eslint src/specific.file ```
+```bash
+npm run build
+npm run preview
+npm run test
+```
+
+## Project status
+
+Middle Messenger is a product-oriented messaging app prototype focused on communication, usability, and real-time interaction. It combines the essential ingredients of modern chat experiences into a straightforward, approachable interface.
+

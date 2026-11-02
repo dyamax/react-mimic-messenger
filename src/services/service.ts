@@ -282,18 +282,18 @@ export const self = async () => {
             window.router.go(Routes.App);
         }
     } catch (e: TE | unknown) {
-        const er = e as Partial<TE>;
-        if (er.response?.reason) {
-            if (er.response?.reason.toLowerCase() === 'cookie is not valid') {
+        const er = e as Partial<TE> | undefined;
+        if (er?.response?.reason) {
+            if (er.response.reason.toLowerCase() === 'cookie is not valid') {
                 err = null;
             } else {
-                err = er.response?.reason;
+                err = er.response.reason;
             }
         } else {
             err = 'Unknown error';
         }
 
-        const est = er.status;
+        const est = er?.status;
 
         if (est === 401) {
             if (window.location.pathname !== '/' && window.location.pathname !== '/sign-up') {
@@ -307,6 +307,18 @@ export const self = async () => {
     } finally {
         window.memory.give({loading: false, eAPI: err});
         err=null;
+    }
+}
+
+export const checkLogin = async () => {
+    window.memory.give({loading: true, eAPI: null});
+
+    try {
+        await self();
+    } catch (e: TE | unknown) {
+        return;
+    } finally {
+        window.memory.give({loading: false});
     }
 }
 
@@ -355,19 +367,6 @@ export const chatsUpdate = async () => {
     } catch (e: TE | unknown) {
         const er = e as Partial<TE>;
         throw new Error(er.response?.reason || 'Unknown error');
-    }
-}
-
-export const checkLogin = async () => {
-    window.memory.give({loading: true, eAPI: null});
-
-    try {
-        await self();
-    } catch (e: TE | unknown) {
-        const er = e as Partial<TE>;
-        throw new Error(er.response?.reason || 'Unknown error');
-    } finally {
-        window.memory.give({loading: false});
     }
 }
 

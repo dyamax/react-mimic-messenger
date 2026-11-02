@@ -56,11 +56,17 @@ export default class EndPointAPI {
                 if (xhr.status >= 200 && xhr.status <= 300) {
                     resolve(xhr.response as TResponse);
                 } else {
-                    reject(xhr);
+                    reject({
+                        status: xhr.status,
+                        response: xhr.response ?? { reason: 'Request failed' }
+                    });
                 }
             };
             
-            xhr.onerror = () => reject();
+            xhr.onerror = () => reject({
+                status: xhr.status,
+                response: xhr.response ?? { reason: 'Network error' }
+            });
             
             if (data instanceof FormData) {
                 xhr.send(data)

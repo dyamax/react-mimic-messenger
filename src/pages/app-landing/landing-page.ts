@@ -6,9 +6,7 @@ import type Router from '../../core/router';
 import { checkLogin } from '../../services/service';
 import { injectRouter } from "../../utils/injectRouter";
 
-interface THome {
-    router: Router
-}
+interface THome { router: Router }
 type P = THome & BlockBaseProps;
 
 class Home extends Block<P,Record<string,Block>>{
